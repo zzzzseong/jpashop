@@ -17,8 +17,8 @@ public class ItemRepository {
         if(item.getId() == null) {
             em.persist(item);
         } else {
-            em.merge(item); //update
-        }
+            em.merge(item); //DB내부의 id가 같은 entity를 찾아 병합(모든 col value를 바꿔치기)
+         }
     }
 
     public Item findOne(Long id) {
