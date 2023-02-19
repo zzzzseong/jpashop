@@ -22,12 +22,12 @@ public class ItemService {
     }
 
     @Transactional
-    public void updateItem(Long itemId, Book bookParam) {
+    public void updateItem(Long itemId, String name, int price, int stockQuantity) {
         //변경 감지 방식 사용 - jpa가 영속성 컨텍스트 내부 entity를 관리
         Item findItem = itemRepository.findOne(itemId);
-        findItem.setName(bookParam.getName());
-        findItem.setPrice(bookParam.getPrice());
-        findItem.setStockQuantity(bookParam.getStockQuantity());
+        findItem.setName(name);
+        findItem.setPrice(price);
+        findItem.setStockQuantity(stockQuantity);
     }
 
     public List<Item> findItems() {
